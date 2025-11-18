@@ -1,7 +1,6 @@
 "use client";
 
 import { useState } from "react";
-import { useRouter } from "next/navigation";
 import { 
   Scan, Zap, Eye, Lock, CheckCircle, Star, 
   TrendingUp, Users, Clock, ArrowRight, Play, X,
@@ -11,7 +10,6 @@ import {
 } from "lucide-react";
 
 export default function Home() {
-  const router = useRouter();
   const [showVideo, setShowVideo] = useState(false);
   const [selectedPlan, setSelectedPlan] = useState<string | null>(null);
   const [checkoutData, setCheckoutData] = useState({
@@ -155,10 +153,6 @@ export default function Home() {
     if (!selectedPlan) return;
     
     alert(`Processando pagamento do plano ${selectedPlan.toUpperCase()}...\n\nEm produção, aqui seria integrado com gateway de pagamento real (Stripe, Mercado Pago, etc).`);
-    
-    setTimeout(() => {
-      router.push("/dashboard");
-    }, 2000);
   };
 
   return (
@@ -204,34 +198,34 @@ export default function Home() {
             <div className="relative w-full h-full">
               <div className="absolute top-0 left-1/2 -translate-x-1/2 w-14 h-14 rounded-full bg-gradient-to-br from-gray-800 to-gray-900 blur-sm" />
               <div className="absolute top-1 left-1/2 -translate-x-1/2 w-16 h-4 bg-purple-500/50 blur-[2px]" />
-              <div className="absolute top-14 left-1/2 -translate-x-1/2 w-18 h-30 bg-gradient-to-b from-gray-800 to-transparent blur-md rounded-t-full" />
+              <div className="absolute top-14 left-1/2 -translate-x-1/2 w-20 h-32 bg-gradient-to-b from-gray-800 to-transparent blur-md rounded-t-full" />
             </div>
           </div>
 
           {/* Silhueta 3 - Centro esquerda */}
           <div className="absolute top-1/2 left-1/4 w-36 h-52 opacity-20">
             <div className="relative w-full h-full">
-              <div className="absolute top-0 left-1/2 -translate-x-1/2 w-18 h-18 rounded-full bg-gradient-to-br from-gray-800 to-gray-900 blur-sm" />
+              <div className="absolute top-0 left-1/2 -translate-x-1/2 w-20 h-20 rounded-full bg-gradient-to-br from-gray-800 to-gray-900 blur-sm" />
               <div className="absolute top-3 left-1/2 -translate-x-1/2 w-24 h-3 bg-blue-500/60 blur-[2px]" />
-              <div className="absolute top-18 left-1/2 -translate-x-1/2 w-24 h-34 bg-gradient-to-b from-gray-800 to-transparent blur-md rounded-t-full" />
+              <div className="absolute top-20 left-1/2 -translate-x-1/2 w-24 h-32 bg-gradient-to-b from-gray-800 to-transparent blur-md rounded-t-full" />
             </div>
           </div>
 
           {/* Silhueta 4 - Direita inferior */}
-          <div className="absolute bottom-32 right-1/4 w-30 h-46 opacity-25">
+          <div className="absolute bottom-32 right-1/4 w-32 h-48 opacity-25">
             <div className="relative w-full h-full">
-              <div className="absolute top-0 left-1/2 -translate-x-1/2 w-15 h-15 rounded-full bg-gradient-to-br from-gray-800 to-gray-900 blur-sm" />
-              <div className="absolute top-2 left-1/2 -translate-x-1/2 w-18 h-3 bg-cyan-500/50 blur-[2px]" />
-              <div className="absolute top-15 left-1/2 -translate-x-1/2 w-20 h-31 bg-gradient-to-b from-gray-800 to-transparent blur-md rounded-t-full" />
+              <div className="absolute top-0 left-1/2 -translate-x-1/2 w-16 h-16 rounded-full bg-gradient-to-br from-gray-800 to-gray-900 blur-sm" />
+              <div className="absolute top-2 left-1/2 -translate-x-1/2 w-20 h-3 bg-cyan-500/50 blur-[2px]" />
+              <div className="absolute top-16 left-1/2 -translate-x-1/2 w-20 h-32 bg-gradient-to-b from-gray-800 to-transparent blur-md rounded-t-full" />
             </div>
           </div>
 
           {/* Silhueta 5 - Esquerda inferior */}
-          <div className="absolute bottom-20 left-1/3 w-34 h-50 opacity-18">
+          <div className="absolute bottom-20 left-1/3 w-36 h-52 opacity-20">
             <div className="relative w-full h-full">
-              <div className="absolute top-0 left-1/2 -translate-x-1/2 w-17 h-17 rounded-full bg-gradient-to-br from-gray-800 to-gray-900 blur-sm" />
-              <div className="absolute top-2 left-1/2 -translate-x-1/2 w-22 h-4 bg-purple-500/60 blur-[2px]" />
-              <div className="absolute top-17 left-1/2 -translate-x-1/2 w-22 h-33 bg-gradient-to-b from-gray-800 to-transparent blur-md rounded-t-full" />
+              <div className="absolute top-0 left-1/2 -translate-x-1/2 w-20 h-20 rounded-full bg-gradient-to-br from-gray-800 to-gray-900 blur-sm" />
+              <div className="absolute top-2 left-1/2 -translate-x-1/2 w-24 h-4 bg-purple-500/60 blur-[2px]" />
+              <div className="absolute top-20 left-1/2 -translate-x-1/2 w-24 h-32 bg-gradient-to-b from-gray-800 to-transparent blur-md rounded-t-full" />
             </div>
           </div>
         </div>
@@ -328,7 +322,7 @@ export default function Home() {
             </div>
             <div className="flex items-center gap-3">
               <button
-                onClick={() => router.push("/login")}
+                onClick={() => window.location.href = '/login'}
                 className="px-4 py-2 text-cyan-300 hover:text-cyan-100 transition-colors text-sm font-semibold"
               >
                 Login
@@ -964,7 +958,7 @@ export default function Home() {
                 Começar Agora
               </button>
               <button
-                onClick={() => router.push("/login")}
+                onClick={() => window.location.href = '/login'}
                 className="px-8 py-4 bg-gray-900 border-2 border-cyan-500/30 rounded-xl text-cyan-100 text-lg font-bold hover:bg-gray-800 hover:border-cyan-400 transition-all"
               >
                 Já Tenho Conta
